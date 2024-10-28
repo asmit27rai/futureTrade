@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MetaMaskContext } from "../MetaMaskContext";
+import { User } from 'lucide-react';
 
 const Navbar = () => {
   const { account, connectToMetaMask } = useContext(MetaMaskContext);
@@ -11,9 +12,14 @@ const Navbar = () => {
         onClick={connectToMetaMask}
         className="ml-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-transform transform hover:scale-105"
       >
-        {account
-          ? `Connected: ${account.slice(0, 6)}...${account.slice(-4)}`
-          : "Connect"}
+        {account ? (
+      <>
+        <User className="w-6 h-6 inline-block mr-2" />
+        {`${account.slice(0, 6)}...${account.slice(-4)}`}
+      </>
+    ) : (
+      "Connect"
+    )}
       </button>
     </nav>
   );
