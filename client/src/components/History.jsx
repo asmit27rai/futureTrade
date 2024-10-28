@@ -9,32 +9,37 @@ const dummyData = [
 
 const History = () => {
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-lg w-full max-w-6xl mx-auto mt-4">
-      <h2 className="text-2xl font-extrabold text-white mb-6">Trade History</h2>
+    <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl w-full max-w-6xl mx-auto mt-8">
+      <h2 className="text-3xl font-extrabold text-center text-white mb-8 tracking-wider">Trade History</h2>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full table-auto bg-gray-800 rounded-lg">
+        <table className="min-w-full table-auto bg-gray-800 rounded-lg border-separate border-spacing-y-2">
           <thead>
             <tr className="text-left text-gray-400 uppercase text-sm border-b border-gray-700">
-              <th className="p-4">Date</th>
-              <th className="p-4">Type</th>
-              <th className="p-4">Asset</th>
-              <th className="p-4">Size</th>
-              <th className="p-4">Leverage</th>
-              <th className="p-4">Profit/Loss</th>
+              <th className="px-4 py-3">Date</th>
+              <th className="px-4 py-3">Type</th>
+              <th className="px-4 py-3">Asset</th>
+              <th className="px-4 py-3">Size</th>
+              <th className="px-4 py-3">Leverage</th>
+              <th className="px-4 py-3">Profit/Loss</th>
             </tr>
           </thead>
           <tbody>
             {dummyData.map((trade, index) => (
-              <tr key={index} className="text-white border-b border-gray-700 hover:bg-gray-700 transition-colors">
-                <td className="p-4">{trade.date}</td>
-                <td className={`p-4 font-bold ${trade.type === 'Buy' ? 'text-green-400' : 'text-red-400'}`}>
+              <tr
+                key={index}
+                className="text-white bg-gray-800 hover:bg-gray-700 transition-colors duration-200 rounded-lg shadow-md hover:shadow-lg"
+              >
+                <td className="px-4 py-3">{trade.date}</td>
+                <td className={`px-4 py-3 font-semibold ${trade.type === 'Buy' ? 'text-green-400' : 'text-red-400'}`}>
                   {trade.type}
                 </td>
-                <td className="p-4">{trade.asset}</td>
-                <td className="p-4">{trade.size}</td>
-                <td className="p-4">{trade.leverage}</td>
-                <td className={`p-4 font-bold ${trade.profitLoss.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                <td className="px-4 py-3">{trade.asset}</td>
+                <td className="px-4 py-3">{trade.size}</td>
+                <td className="px-4 py-3">{trade.leverage}</td>
+                <td
+                  className={`px-4 py-3 font-bold ${trade.profitLoss.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}
+                >
                   {trade.profitLoss}
                 </td>
               </tr>
